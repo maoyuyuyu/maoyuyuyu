@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年国庆节快乐</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <script>
+        // Tailwind 配置
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#DE1F26', // 中国红
+                        secondary: '#F9D77E', // 金色
+                        darkRed: '#A61C20', // 暗红
+                        lightGold: '#FFEDB4', // 浅金
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                },
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            .text-shadow-lg {
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            }
+            .animate-float {
+                animation: float 3s ease-in-out infinite;
+            }
+            .animate-scale {
+                animation: scale 2s ease-in-out infinite;
+            }
+            .animate-spin-slow {
+                animation: spin 15s linear infinite;
+            }
+            .animate-bounce {
+                animation: bounce 0.6s ease-out;
+            }
+            .animate-heart-beat {
+                animation: heartBeat 1s ease-in-out;
+            }
+            .bg-gradient-national {
+                background-image: linear-gradient(120deg, #DE1F26 0%, #DE1F26 50%, #F9D77E 50%, #F9D77E 100%);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes scale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-primary/5 to-white min-h-screen font-sans text-gray-800 overflow-x-hidden">
+    <!-- 顶部装饰 -->
+    <div class="fixed top-0 left-0 w-full h-6 bg-gradient-national z-50"></div>
+    
+    <!-- 主页英雄区域 -->
+    <section class="relative pt-16 pb-20 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center min-h-[80vh]">
+        <!-- 背景装饰 - 星星 -->
+        <div id="stars-container" class="absolute inset-0 overflow-hidden pointer-events-none"></div>
+        
+        <!-- 标题 -->
+        <h1 class="text-[clamp(2.5rem,8vw,4.5rem)] font-bold text-primary text-center mb-4 animate-float">
+            庆祝2025年国庆节
+        </h1>
+        <p class="text-[clamp(1.2rem,4vw,2rem)] font-semibold text-darkRed text-center mb-8">
+            祖国76周年华诞
+        </p>
+        
+        <!-- 主视觉元素 -->
+        <div class="relative w-[clamp(200px,60vw,400px)] h-[clamp(200px,60vw,400px)] mb-10">
+            <!-- 圆形背景 -->
+            <div class="absolute inset-0 bg-primary rounded-full opacity-10 animate-spin-slow"></div>
+            
+            <!-- 国旗图案 -->
+                        <div class="absolute inset-4 bg-primary rounded-full flex items-center justify-center">
+                            <div class="text-secondary text-[clamp(4rem,15vw,8rem)] animate-scale">
+                                <i class="fa fa-flag"></i>
+                            </div>
+                        </div>
+                    </div>
+                
+                                                   </p>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        
+        <!-- 祝福语 -->
+        <div class="max-w-2xl text-center mb-12">
+            <p class="text-[clamp(1rem,3vw,1.25rem)] text-gray-700 mb-6">
+                在这个举国欢庆的日子里，让我们共同祝愿伟大的祖国繁荣富强，国泰民安！
+            </p>
+            <p class="text-[clamp(1rem,3vw,1.25rem)] text-gray-700">
+                祝福祖国母亲76岁生日快乐！
+            </p>
+        </div>
+        
+        <!-- 互动按钮 -->
+        <div class="flex flex-wrap justify-center gap-4">
+            <button id="quiz-btn" class="px-8 py-3 bg-secondary text-darkRed rounded-full font-semibold hover:bg-lightGold transform transition-all hover:scale-105 shadow-lg">
+                <i class="fa fa-question-circle mr-2"></i> 国庆知识问答
+            </button>
+            <button id="puzzle-btn" class="px-8 py-3 bg-white text-primary border-2 border-primary rounded-full font-semibold hover:bg-primary/5 transform transition-all hover:scale-105 shadow-lg">
+                <i class="fa fa-puzzle-piece mr-2"></i> 国旗拼图
+            </button>
+        </div>
+    </section>
+    
+    <!-- 国庆知识部分 -->
+    <section id="knowledge-section" class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-[clamp(1.5rem,5vw,2.5rem)] font-bold text-primary text-center mb-12">
+                国庆知识知多少
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <h3 class="text-xl font-semibold text-darkRed mb-3">国庆节的由来</h3>
+                    <p class="text-gray-700">
+                        1949年10月1日，毛泽东主席在北京天安门城楼上宣告中华人民共和国成立，这一天被定为中华人民共和国国庆节。2025年10月1日是新中国成立76周年纪念日。
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <h3 class="text-xl font-semibold text-darkRed mb-3">国庆阅兵</h3>
+                    <p class="text-gray-700">
+                        国庆阅兵是中国展示国防力量和现代化建设成就的重要方式，通常每10年举行一次大规模阅兵，下一次大规模阅兵预计在2030年举行。
+                    </p>
+                </div>
+            </div>
+            
+            <!-- 数据可视化 -->
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h3 class="text-xl font-semibold text-darkRed mb-6 text-center">中国历年GDP增长趋势</h3>
+                <div class="w-full h-64">
+                    <canvas id="gdpChart"></canvas>
+                </div>
+            </div>
+    </section>
+
+    <!-- 历史时间轴 -->
+    <section id="history-timeline" class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-[clamp(1.5rem,5vw,2.5rem)] font-bold text-primary text-center mb-4">
+                共和国发展历程
+            </h2>
+            <p class="text-gray-600 text-center mb-16">
+                回顾新中国成立以来的重要历史时刻
+            </p>
+            
+            <!-- 历史时间轴 -->
+            <div class="relative">
+                <!-- 中轴线 -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary/20"></div>
+                
+                <!-- 时间点1：开国大典 -->
+                <div class="timeline-item mb-20 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1 mt-6 md:mt-0">
+                            <h3 class="text-xl font-semibold text-darkRed mb-2">开国大典</h3>
+                            <p class="text-gray-600 mb-1">1949年10月1日</p>
+                            <p class="text-gray-700">毛泽东主席在北京天安门城楼上庄严宣告中华人民共和国成立，开启了中国历史的新纪元。</p>
+                            <button class="history-detail-btn mt-3 text-primary hover:text-darkRed font-medium">
+                查看详情 <i class="fa fa-angle-right ml-1"></i>
+            </button>
+                        </div>
+                        
+                        <!-- 中心点 -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary border-4 border-white shadow-lg z-10"></div>
+                        
+                        <div class="md:w-1/2 md:pl-12 order-1 md:order-2">
+                            <div class="history-image-container rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-[1.02]">
+                                <img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.61HucZzm5Kqv81wf601pRwHaET?w=293&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="开国大典" class="w-full h-64 object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 详情内容 -->
+                    <div class="history-detail hidden mt-6 bg-gray-50 p-4 rounded-lg mx-auto max-w-2xl">
+                        <p class="text-gray-700">1949年10月1日下午3时，毛泽东主席在天安门城楼上向全世界庄严宣告："中华人民共和国中央人民政府今天成立了！" 他按动电钮，升起了新中国第一面五星红旗。天安门广场上30万军民举行了盛大的开国大典，庆祝中华人民共和国的诞生。</p>
+                        <div class="mt-4 flex justify-end">
+                            <button class="history-close-btn text-sm text-gray-500 hover:text-gray-700">
+                                收起详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 时间点2：第一颗原子弹爆炸 -->
+                <div class="timeline-item mb-20 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 order-2 mt-6 md:mt-0">
+                            <div class="history-image-container rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-[1.02]">
+                                <img src="https://tse1-mm.cn.bing.net/th/id/OIP-C.-9DXYFXxRBotC7XdkbY_UQHaEo?w=297&h=186&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="第一颗原子弹爆炸" class="w-full h-64 object-cover">
+                            </div>
+                        </div>
+                        
+                        <!-- 中心点 -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary border-4 border-white shadow-lg z-10"></div>
+                        
+                        <div class="md:w-1/2 md:pl-12 md:text-left order-1 mt-6 md:mt-0">
+                            <h3 class="text-xl font-semibold text-darkRed mb-2">第一颗原子弹爆炸成功</h3>
+                            <p class="text-gray-600 mb-1">1964年10月16日</p>
+                            <p class="text-gray-700">中国在新疆罗布泊成功地爆炸了第一颗原子弹，成为世界上第五个拥有核武器的国家。</p>
+                            <button class="history-detail-btn mt-3 text-primary hover:text-darkRed font-medium">
+                                查看详情 <i class="fa fa-angle-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 详情内容 -->
+                    <div class="history-detail hidden mt-6 bg-gray-50 p-4 rounded-lg mx-auto max-w-2xl">
+                        <p class="text-gray-700">1964年10月16日，中国在新疆罗布泊成功地进行了第一次核试验，爆炸当量约2.2万吨TNT。中国政府随即发表声明，郑重宣布：中国进行核试验，发展核武器，完全是为了防御，为了保卫中国人民免受核威胁。中国在任何时候、任何情况下，都不会首先使用核武器。</p>
+                        <div class="mt-4 flex justify-end">
+                            <button class="history-close-btn text-sm text-gray-500 hover:text-gray-700">
+                                收起详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 时间点3：改革开放 -->
+                <div class="timeline-item mb-20 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1 mt-6 md:mt-0">
+                            <h3 class="text-xl font-semibold text-darkRed mb-2">改革开放</h3>
+                            <p class="text-gray-600 mb-1">1978年12月</p>
+                            <p class="text-gray-700">中国共产党召开十一届三中全会，确立了解放思想、实事求是的思想路线，作出了实行改革开放的历史性决策。</p>
+                            <button class="history-detail-btn mt-3 text-primary hover:text-darkRed font-medium">
+                                查看详情 <i class="fa fa-angle-right ml-1"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- 中心点 -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary border-4 border-white shadow-lg z-10"></div>
+                        
+                        <div class="md:w-1/2 md:pl-12 order-1 md:order-2">
+                            <div class="history-image-container rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-[1.02]">
+                                <img src="https://tse3-mm.cn.bing.net/th/id/OIP-C.oZ639s0FVJEcTlh6Pim7rgHaEv?w=276&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="改革开放" class="w-full h-64 object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 详情内容 -->
+                    <div class="history-detail hidden mt-6 bg-gray-50 p-4 rounded-lg mx-auto max-w-2xl">
+                        <p class="text-gray-700">1978年12月18日至22日，中国共产党第十一届中央委员会第三次全体会议在北京召开。全会确立了解放思想、实事求是的思想路线，作出了把党和国家工作中心转移到经济建设上来、实行改革开放的历史性决策。改革开放是中国共产党在社会主义初级阶段基本路线的两个基本点之一，极大地解放和发展了社会生产力，推动了中国特色社会主义事业的伟大飞跃。</p>
+                        <div class="mt-4 flex justify-end">
+                            <button class="history-close-btn text-sm text-gray-500 hover:text-gray-700">
+                                收起详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 时间点4：香港回归 -->
+                <div class="timeline-item mb-20 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 order-2 mt-6 md:mt-0">
+                            <div class="history-image-container rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-[1.02]">
+                                <img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.JooP5HGUUCr8DOqcgEkzaQAAAA?w=298&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="香港回归" class="w-full h-64 object-cover">
+                            </div>
+                        </div>
+                        
+                        <!-- 中心点 -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary border-4 border-white shadow-lg z-10"></div>
+                        
+                        <div class="md:w-1/2 md:pl-12 md:text-left order-1 mt-6 md:mt-0">
+                            <h3 class="text-xl font-semibold text-darkRed mb-2">香港回归祖国</h3>
+                            <p class="text-gray-600 mb-1">1997年7月1日</p>
+                            <p class="text-gray-700">中国政府对香港恢复行使主权，香港特别行政区成立，洗雪了中华民族百年耻辱。</p>
+                            <button class="history-detail-btn mt-3 text-primary hover:text-darkRed font-medium">
+                                查看详情 <i class="fa fa-angle-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 详情内容 -->
+                    <div class="history-detail hidden mt-6 bg-gray-50 p-4 rounded-lg mx-auto max-w-2xl">
+                        <p class="text-gray-700">1997年7月1日零时，中英两国政府香港政权交接仪式在香港会议展览中心隆重举行。中国国家主席江泽民庄严宣告：根据中英关于香港问题的联合声明，两国政府如期举行了香港交接仪式，宣告中国对香港恢复行使主权。中华人民共和国香港特别行政区正式成立。香港回归祖国，标志着中国人民洗雪了香港被侵占的百年国耻，开创了香港和祖国内地共同发展的新纪元。</p>
+                        <div class="mt-4 flex justify-end">
+                            <button class="history-close-btn text-sm text-gray-500 hover:text-gray-700">
+                                收起详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 时间点5：北京奥运会 -->
+                <div class="timeline-item mb-20 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1 mt-6 md:mt-0">
+                            <h3 class="text-xl font-semibold text-darkRed mb-2">北京奥运会</h3>
+                            <p class="text-gray-600 mb-1">2008年8月8日</p>
+                            <p class="text-gray-700">第29届夏季奥林匹克运动会在北京开幕，中国向世界展示了改革开放的巨大成就和东方文明的魅力。</p>
+                            <button class="history-detail-btn mt-3 text-primary hover:text-darkRed font-medium">
+                                查看详情 <i class="fa fa-angle-right ml-1"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- 中心点 -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary border-4 border-white shadow-lg z-10"></div>
+                        
+                        <div class="md:w-1/2 md:pl-12 order-1 md:order-2">
+                            <div class="history-image-container rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-[1.02]">
+                                <img src="https://tse2-mm.cn.bing.net/th/id/OIP-C.k7_L3t0DuqLDQmQKS6fu2wHaE6?w=226&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="北京奥运会" class="w-full h-64 object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 详情内容 -->
+                    <div class="history-detail hidden mt-6 bg-gray-50 p-4 rounded-lg mx-auto max-w-2xl">
+                        <p class="text-gray-700">2008年8月8日，第29届夏季奥林匹克运动会在北京国家体育场隆重开幕。这是中国历史上第一次举办奥运会，也是世界奥林匹克运动史上的一次盛会。北京奥运会共有204个国家和地区的1万余名运动员参加，共设有28个大项、302个小项的比赛。中国体育代表团获得了51枚金牌、21枚银牌、28枚铜牌，位居金牌榜首位，创造了中国体育代表团参加奥运会以来的最好成绩。北京奥运会的成功举办，向世界展示了中国改革开放30年来取得的巨大成就，极大地提升了中国的国际地位和影响力。</p>
+                        <div class="mt-4 flex justify-end">
+                            <button class="history-close-btn text-sm text-gray-500 hover:text-gray-700">
+                                收起详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 时间点6：中国加入世贸组织 -->
+                <div class="timeline-item mb-20 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1 mt-6 md:mt-0">
+                            <h3 class="text-xl font-semibold text-darkRed mb-2">中国加入世界贸易组织</h3>
+                            <p class="text-gray-600 mb-1">2001年12月11日</p>
+                            <p class="text-gray-700">中国正式成为世界贸易组织第143个成员国，标志着中国对外开放进入了新阶段。</p>
+                            <button class="history-detail-btn mt-3 text-primary hover:text-darkRed font-medium">
+                                查看详情 <i class="fa fa-angle-right ml-1"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- 中心点 -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary border-4 border-white shadow-lg z-10"></div>
+                        
+                        <div class="md:w-1/2 md:pl-12 order-1 md:order-2">
+                            <div class="history-image-container rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-[1.02]">
+                                <img src="https://tse1-mm.cn.bing.net/th/id/OIP-C.MFKlBIC3dj0W8RKFOPMtlAHaFY?w=227&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="中国加入世贸组织" class="w-full h-64 object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 详情内容 -->
+                    <div class="history-detail hidden mt-6 bg-gray-50 p-4 rounded-lg mx-auto max-w-2xl">
+                        <p class="text-gray-700">2001年12月11日，中国正式加入世界贸易组织（WTO），成为第143个成员国。这是中国改革开放和现代化建设进程中的一个重要里程碑。加入世贸组织后，中国全面履行了入世承诺，大幅降低关税，取消非关税壁垒，开放服务贸易领域，加强知识产权保护，逐步建立起了符合国际规则的经济贸易体制。中国加入世贸组织不仅促进了自身经济的快速发展，也为世界经济增长作出了重要贡献。</p>
+                        <div class="mt-4 flex justify-end">
+                            <button class="history-close-btn text-sm text-gray-500 hover:text-gray-700">
+                                收起详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 时间点7：神舟五号载人航天 -->
+                <div class="timeline-item mb-20 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 order-2 mt-6 md:mt-0">
+                            <div class="history-image-container rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-[1.02]">
+                                <img src="https://tse2-mm.cn.bing.net/th/id/OIP-C.NA79IWHBWBhGCxDZMg0R3QHaE7?w=268&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="神舟五号载人航天" class="w-full h-64 object-cover">
+                            </div>
+                        </div>
+                        
+                        <!-- 中心点 -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary border-4 border-white shadow-lg z-10"></div>
+                        
+                        <div class="md:w-1/2 md:pl-12 md:text-left order-1 mt-6 md:mt-0">
+                            <h3 class="text-xl font-semibold text-darkRed mb-2">神舟五号载人航天</h3>
+                            <p class="text-gray-600 mb-1">2003年10月15日</p>
+                            <p class="text-gray-700">中国成功发射第一艘载人飞船，杨利伟成为中国第一位进入太空的航天员。</p>
+                            <button class="history-detail-btn mt-3 text-primary hover:text-darkRed font-medium">
+                                查看详情 <i class="fa fa-angle-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 详情内容 -->
+                    <div class="history-detail hidden mt-6 bg-gray-50 p-4 rounded-lg mx-auto max-w-2xl">
+                        <p class="text-gray-700">2003年10月15日，神舟五号飞船在酒泉卫星发射中心成功发射，将航天员杨利伟送入太空。飞船在轨运行21小时23分钟，绕地球14圈后，于10月16日安全返回地面。神舟五号的成功发射和返回，标志着中国成为继苏联（俄罗斯）和美国之后，世界上第三个能够独立开展载人航天活动的国家，实现了中华民族千年飞天的梦想。这是中国航天事业发展的重要里程碑，极大地增强了中国人民的民族自信心和自豪感。</p>
+                        <div class="mt-4 flex justify-end">
+                            <button class="history-close-btn text-sm text-gray-500 hover:text-gray-700">
+                                收起详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 时间点8：一带一路倡议 -->
+                <div class="timeline-item mb-20 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1 mt-6 md:mt-0">
+                            <h3 class="text-xl font-semibold text-darkRed mb-2">一带一路倡议提出</h3>
+                            <p class="text-gray-600 mb-1">2013年</p>
+                            <p class="text-gray-700">中国提出"丝绸之路经济带"和"21世纪海上丝绸之路"倡议，旨在促进亚欧非经济合作和互联互通。</p>
+                            <button class="history-detail-btn mt-3 text-primary hover:text-darkRed font-medium">
+                                查看详情 <i class="fa fa-angle-right ml-1"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- 中心点 -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary border-4 border-white shadow-lg z-10"></div>
+                        
+                        <div class="md:w-1/2 md:pl-12 order-1 md:order-2">
+                            <div class="history-image-container rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-[1.02]">
+                                <img src="https://tse2-mm.cn.bing.net/th/id/OIP-C.G3XhEsbBBnvsSgsgXkVq0QHaEI?w=323&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="一带一路倡议" class="w-full h-64 object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 详情内容 -->
+                    <div class="history-detail hidden mt-6 bg-gray-50 p-4 rounded-lg mx-auto max-w-2xl">
+                        <p class="text-gray-700">2013年9月和10月，中国国家主席习近平分别提出建设"新丝绸之路经济带"和"21世纪海上丝绸之路"的合作倡议，简称"一带一路"倡议。这一倡议秉承共商、共建、共享原则，旨在促进亚欧非经济合作和互联互通，打造国际合作新平台，增添共同发展新动力。截至2025年，已有180多个国家和国际组织同中国签署了共建"一带一路"合作文件，"一带一路"倡议已成为当今世界范围最广、规模最大的国际合作平台，为全球经济发展注入了新的活力。</p>
+                        <div class="mt-4 flex justify-end">
+                            <button class="history-close-btn text-sm text-gray-500 hover:text-gray-700">
+                                收起详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 时间点9：全面建成小康社会 -->
+                <div class="timeline-item mb-20 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 order-2 mt-6 md:mt-0">
+                            <div class="history-image-container rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-[1.02]">
+                                <img src="https://tse2-mm.cn.bing.net/th/id/OIP-C.HcN4xl5rkuy-gx2Ofp5AMgHaEE?w=325&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="全面建成小康社会" class="w-full h-64 object-cover">
+                            </div>
+                        </div>
+                        
+                        <!-- 中心点 -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary border-4 border-white shadow-lg z-10"></div>
+                        
+                        <div class="md:w-1/2 md:pl-12 md:text-left order-1 mt-6 md:mt-0">
+                            <h3 class="text-xl font-semibold text-darkRed mb-2">全面建成小康社会</h3>
+                            <p class="text-gray-600 mb-1">2021年</p>
+                            <p class="text-gray-700">中国如期完成新时代脱贫攻坚目标任务，现行标准下农村贫困人口全部脱贫，历史性地解决了绝对贫困问题。</p>
+                            <button class="history-detail-btn mt-3 text-primary hover:text-darkRed font-medium">
+                                查看详情 <i class="fa fa-angle-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 详情内容 -->
+                    <div class="history-detail hidden mt-6 bg-gray-50 p-4 rounded-lg mx-auto max-w-2xl">
+                        <p class="text-gray-700">2021年7月1日，习近平总书记在庆祝中国共产党成立100周年大会上庄严宣告："经过全党全国各族人民持续奋斗，我们实现了第一个百年奋斗目标，在中华大地上全面建成了小康社会，历史性地解决了绝对贫困问题，正在意气风发向着全面建成社会主义现代化强国的第二个百年奋斗目标迈进。" 全面建成小康社会，是中国共产党带领中国人民实现的第一个百年奋斗目标，是中华民族伟大复兴征程上的一座重要里程碑。</p>
+                        <div class="mt-4 flex justify-end">
+                            <button class="history-close-btn text-sm text-gray-500 hover:text-gray-700">
+                                收起详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 时间点10：抗击新冠疫情 -->
+                <div class="timeline-item relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1 mt-6 md:mt-0">
+                            <h3 class="text-xl font-semibold text-darkRed mb-2">抗击新冠疫情</h3>
+                            <p class="text-gray-600 mb-1">2020年至今</p>
+                            <p class="text-gray-700">中国在全球范围内率先控制住疫情，为全球抗疫合作作出重要贡献。</p>
+                            <button class="history-detail-btn mt-3 text-primary hover:text-darkRed font-medium">
+                                查看详情 <i class="fa fa-angle-right ml-1"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- 中心点 -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary border-4 border-white shadow-lg z-10"></div>
+                        
+                        <div class="md:w-1/2 md:pl-12 order-1 md:order-2">
+                            <div class="history-image-container rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-[1.02]">
+                                <img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.1x18CyZyh2A0wHTTdST0bgHaE8?w=233&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="抗击新冠疫情" class="w-full h-64 object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 详情内容 -->
+                    <div class="history-detail hidden mt-6 bg-gray-50 p-4 rounded-lg mx-auto max-w-2xl">
+                        <p class="text-gray-700">2020年初，新冠肺炎疫情在全球暴发。中国政府坚持人民至上、生命至上，迅速采取最全面、最严格、最彻底的防控措施，全国上下同心协力，打响了一场疫情防控的人民战争、总体战、阻击战。经过艰苦努力，中国在全球范围内率先控制住疫情，率先恢复经济社会发展，为全球抗疫合作树立了典范。中国积极开展国际抗疫合作，向多个国家和国际组织提供疫苗和抗疫物资援助，展现了负责任大国的担当。这场疫情防控斗争，充分彰显了中国共产党领导和中国特色社会主义制度的显著优势。</p>
+                        <div class="mt-4 flex justify-end">
+                            <button class="history-close-btn text-sm text-gray-500 hover:text-gray-700">
+                                收起详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    
+    <!-- 祝福墙 -->
+    <section id="greeting-wall" class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-primary/5">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-[clamp(1.5rem,5vw,2.5rem)] font-bold text-primary text-center mb-4">
+                祝福墙
+            </h2>
+            <p class="text-gray-600 text-center mb-10">
+                留下你对祖国的美好祝福
+            </p>
+            
+            <!-- 发送祝福区域 -->
+            <div class="flex justify-center mb-8">
+                <button id="greeting-btn" class="px-8 py-3 bg-primary text-white rounded-full font-semibold hover:bg-darkRed transform transition-all hover:scale-105 shadow-lg">
+                    <i class="fa fa-heart mr-2"></i> 发送祝福
+                </button>
+            </div>
+            
+            <!-- 祝福表单 -->
+            <div class="mb-10">
+                <textarea id="greeting-text" class="w-full p-4 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 resize-none" rows="3" placeholder="写下你对祖国的祝福..."></textarea>
+                <div class="mt-3 flex justify-end">
+                    <button id="submit-greeting" class="px-6 py-2 bg-primary text-white rounded-full hover:bg-darkRed transition-colors">
+                        <i class="fa fa-paper-plane mr-2"></i> 提交祝福
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 祝福列表 -->
+            <div id="greeting-list" class="space-y-4">
+                <!-- 示例祝福 -->
+                <div class="bg-white p-4 rounded-lg shadow-sm transition-all hover:shadow-md">
+                    <div class="flex items-start">
+                        <div class="text-secondary text-2xl mr-3">
+                            <i class="fa fa-user-circle"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-gray-800">祝福祖国繁荣昌盛，人民幸福安康！</p>
+                            <p class="text-xs text-gray-500 mt-2">来自北京的祝福 · 刚刚</p>
+                            <div class="flex items-center mt-3 space-x-4">
+                                <button class="greeting-like-btn text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fa fa-heart-o mr-1"></i> <span class="like-count">12</span>
+                                </button>
+                                <button class="greeting-share-btn text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fa fa-share-alt mr-1"></i> 分享
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-4 rounded-lg shadow-sm transition-all hover:shadow-md">
+                    <div class="flex items-start">
+                        <div class="text-secondary text-2xl mr-3">
+                            <i class="fa fa-user-circle"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-gray-800">祖国76周年生日快乐！祝愿祖国的明天更加美好！</p>
+                            <p class="text-xs text-gray-500 mt-2">来自上海的祝福 · 5分钟前</p>
+                            <div class="flex items-center mt-3 space-x-4">
+                                <button class="greeting-like-btn text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fa fa-heart-o mr-1"></i> <span class="like-count">8</span>
+                                </button>
+                                <button class="greeting-share-btn text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fa fa-share-alt mr-1"></i> 分享
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 知识问答模态框 -->
+    <div id="quiz-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
+        <div class="relative bg-white rounded-xl shadow-2xl max-w-md w-full mx-4 p-6">
+            <button id="close-quiz" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <i class="fa fa-times text-xl"></i>
+            </button>
+            
+            <h3 id="quiz-question" class="text-xl font-semibold text-darkRed mb-6">
+                中华人民共和国成立于哪一年？
+            </h3>
+            
+            <div id="quiz-options" class="space-y-3 mb-6">
+                <button class="quiz-option w-full text-left p-3 border border-gray-200 rounded-lg hover:bg-primary/5 transition-colors">1945年</button>
+                <button class="quiz-option w-full text-left p-3 border border-gray-200 rounded-lg hover:bg-primary/5 transition-colors">1949年</button>
+                <button class="quiz-option w-full text-left p-3 border border-gray-200 rounded-lg hover:bg-primary/5 transition-colors">1950年</button>
+                <button class="quiz-option w-full text-left p-3 border border-gray-200 rounded-lg hover:bg-primary/5 transition-colors">1956年</button>
+            </div>
+            
+            <div id="quiz-result" class="hidden mb-6 p-4 rounded-lg text-center"></div>
+        </div>
+    </div>
+    
+    <!-- 祝福模态框 -->
+    <div id="greeting-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
+        <div class="relative bg-white rounded-xl shadow-2xl max-w-md w-full mx-4 p-6 text-center">
+            <button id="close-greeting" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <i class="fa fa-times text-xl"></i>
+            </button>
+            
+            <div class="text-primary text-6xl mb-4">
+                <i class="fa fa-heart"></i>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-darkRed mb-4">
+                选择一句祝福语
+            </h3>
+            
+            <div id="greeting-options" class="space-y-3 mb-6">
+                <button class="greeting-option w-full p-3 bg-primary/5 border border-primary/20 rounded-lg hover:bg-primary/10 transition-colors">
+                    祝福祖国繁荣昌盛，国泰民安！
+                </button>
+                <button class="greeting-option w-full p-3 bg-primary/5 border border-primary/20 rounded-lg hover:bg-primary/10 transition-colors">
+                    我爱你中国，祝福祖国生日快乐！
+                </button>
+                <button class="greeting-option w-full p-3 bg-primary/5 border border-primary/20 rounded-lg hover:bg-primary/10 transition-colors">
+                    愿祖国的明天更加辉煌灿烂！
+                </button>
+                <button class="greeting-option w-full p-3 bg-primary/5 border border-primary/20 rounded-lg hover:bg-primary/10 transition-colors">
+                    祖国76周年生日快乐，繁荣富强！
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 底部 -->
+    <footer class="py-8 px-4 text-center text-gray-600 bg-gray-50">
+        <p>&copy; 2025 国庆节特别策划 | 祝福伟大祖国繁荣昌盛</p>
+    </footer>
+    
+    <script>
+        // 创建背景星星
+        function createStars() {
+            const container = document.getElementById('stars-container');
+            const starCount = 100;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                const size = Math.random() * 3 + 1;
+                const opacity = Math.random() * 0.8 + 0.2;
+                const duration = Math.random() * 5 + 3;
+                const delay = Math.random() * 5;
+                
+                star.style.position = 'absolute';
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.backgroundColor = '#F9D77E';
+                star.style.borderRadius = '50%';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.opacity = opacity;
+                star.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+                
+                container.appendChild(star);
+            }
+        }
+        
+        // GDP数据图表
+        function createGdpChart() {
+            const ctx = document.getElementById('gdpChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['2015', '2017', '2019', '2021', '2023', '2025'],
+                    datasets: [{
+                        label: 'GDP (万亿元)',
+                        data: [68.9, 82.1, 98.7, 114.4, 130.3, 146.5],
+                        backgroundColor: 'rgba(222, 31, 38, 0.1)',
+                        borderColor: '#DE1F26',
+                        borderWidth: 2,
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // 知识问答功能
+        function setupQuiz() {
+            const quizModal = document.getElementById('quiz-modal');
+            const closeQuiz = document.getElementById('close-quiz');
+            const quizBtn = document.getElementById('quiz-btn');
+            const quizOptions = document.querySelectorAll('.quiz-option');
+            const quizResult = document.getElementById('quiz-result');
+            
+            // 问题数据
+            const questions = [
+                {
+                    question: '中华人民共和国成立于哪一年？',
+                    options: ['1945年', '1949年', '1950年', '1956年'],
+                    answer: '1949年'
+                },
+                {
+                    question: '2025年是新中国成立多少周年？',
+                    options: ['70周年', '72周年', '74周年', '76周年'],
+                    answer: '76周年'
+                },
+                {
+                    question: '国庆节通常放几天假？',
+                    options: ['3天', '5天', '7天', '10天'],
+                    answer: '7天'
+                }
+            ];
+            
+            let currentQuestion = 0;
+            
+            function showQuestion(index) {
+                document.getElementById('quiz-question').textContent = questions[index].question;
+                quizOptions.forEach((option, i) => {
+                    option.textContent = questions[index].options[i];
+                    option.className = 'quiz-option w-full text-left p-3 border border-gray-200 rounded-lg hover:bg-primary/5 transition-colors';
+                });
+                quizResult.classList.add('hidden');
+            }
+            
+            quizBtn.addEventListener('click', () => {
+                quizModal.classList.remove('hidden');
+                currentQuestion = 0;
+                showQuestion(currentQuestion);
+            });
+            
+            closeQuiz.addEventListener('click', () => {
+                quizModal.classList.add('hidden');
+            });
+            
+            quizOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const isCorrect = option.textContent === questions[currentQuestion].answer;
+                    
+                    if (isCorrect) {
+                        option.classList.add('bg-green-100', 'border-green-500');
+                        quizResult.textContent = '回答正确！太棒了！';
+                        quizResult.className = 'mb-6 p-4 rounded-lg text-center bg-green-100 text-green-800';
+                    } else {
+                        option.classList.add('bg-red-100', 'border-red-500');
+                        // 高亮正确答案
+                        quizOptions.forEach(opt => {
+                            if (opt.textContent === questions[currentQuestion].answer) {
+                                opt.classList.add('bg-green-100', 'border-green-500');
+                            }
+                        });
+                        quizResult.textContent = `回答错误！正确答案是：${questions[currentQuestion].answer}`;
+                        quizResult.className = 'mb-6 p-4 rounded-lg text-center bg-red-100 text-red-800';
+                    }
+                    
+                    quizResult.classList.remove('hidden');
+                    
+                    // 自动进入下一题或关闭
+                    setTimeout(() => {
+                        currentQuestion++;
+                        if (currentQuestion < questions.length) {
+                            showQuestion(currentQuestion);
+                        } else {
+                            quizModal.classList.add('hidden');
+                        }
+                    }, 2000);
+                });
+            });
+        }
+        
+        // 祝福功能
+        function setupGreetings() {
+            const greetingModal = document.getElementById('greeting-modal');
+            const closeGreeting = document.getElementById('close-greeting');
+            const greetingBtn = document.getElementById('greeting-btn');
+            const greetingOptions = document.querySelectorAll('.greeting-option');
+            const greetingText = document.getElementById('greeting-text');
+            const submitGreeting = document.getElementById('submit-greeting');
+            const greetingList = document.getElementById('greeting-list');
+            
+            greetingBtn.addEventListener('click', () => {
+                greetingModal.classList.remove('hidden');
+            });
+            
+            closeGreeting.addEventListener('click', () => {
+                greetingModal.classList.add('hidden');
+            });
+            
+            greetingOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    greetingText.value = option.textContent;
+                    greetingModal.classList.add('hidden');
+                });
+            });
+            
+            submitGreeting.addEventListener('click', () => {
+                if (greetingText.value.trim() === '') return;
+                
+                // 添加新祝福
+                const newGreeting = document.createElement('div');
+                newGreeting.className = 'bg-white p-4 rounded-lg shadow-sm transition-all hover:shadow-md';
+                newGreeting.innerHTML = `
+                    <div class="flex items-start">
+                        <div class="text-secondary text-2xl mr-3">
+                            <i class="fa fa-user-circle"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-gray-800">${greetingText.value}</p>
+                            <p class="text-xs text-gray-500 mt-2">来自你的祝福 · 刚刚</p>
+                            <div class="flex items-center mt-3 space-x-4">
+                                <button class="greeting-like-btn text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fa fa-heart-o mr-1"></i> <span class="like-count">0</span>
+                                </button>
+                                <button class="greeting-share-btn text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fa fa-share-alt mr-1"></i> 分享
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // 添加到列表顶部并添加动画
+                greetingList.insertBefore(newGreeting, greetingList.firstChild);
+                newGreeting.style.opacity = '0';
+                setTimeout(() => {
+                    newGreeting.style.transition = 'opacity 0.5s';
+                    newGreeting.style.opacity = '1';
+                }, 10);
+                
+                // 清空输入框
+                greetingText.value = '';
+                
+                // 显示成功提示
+                showNotification('祝福提交成功！感谢你的爱国之心！');
+            });
+        }
+        
+        // 历史时间轴记忆挑战游戏
+        function setupHistoryMemoryGame() {
+            // 创建游戏按钮
+            const timelineSection = document.querySelector('#history-section');
+            const sectionTitle = timelineSection.querySelector('h2');
+            
+            if (!timelineSection.querySelector('#memory-game-btn')) {
+                const gameBtn = document.createElement('button');
+                gameBtn.id = 'memory-game-btn';
+                gameBtn.className = 'mt-4 px-6 py-2 bg-primary text-white rounded-full hover:bg-red-700 transition-colors flex items-center shadow-md';
+                gameBtn.innerHTML = '<i class="fa fa-gamepad mr-2"></i> 历史记忆挑战';
+                sectionTitle.parentNode.insertBefore(gameBtn, sectionTitle.nextSibling);
+                
+                gameBtn.addEventListener('click', () => {
+                    startMemoryGame();
+                });
+            }
+            
+            function startMemoryGame() {
+                // 创建游戏模态框
+                const gameModal = document.createElement('div');
+                gameModal.id = 'memory-game-modal';
+                gameModal.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80';
+                gameModal.innerHTML = `
+                    <div class="relative bg-white rounded-xl shadow-2xl max-w-3xl w-full mx-4 p-6">
+                        <button id="close-memory-game" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                            <i class="fa fa-times text-xl"></i>
+                        </button>
+                        
+                        <h3 class="text-xl font-semibold text-darkRed mb-6 text-center">
+                            历史记忆挑战
+                        </h3>
+                        
+                        <div class="text-gray-600 text-center mb-4" id="game-instructions">
+                            <p>测试你对历史事件的了解！</p>
+                            <p class="mt-2">将历史事件按正确的时间顺序排列</p>
+                        </div>
+                        
+                        <div id="game-timer" class="text-center text-lg font-medium text-primary mb-4">
+                            时间: 00:00
+                        </div>
+                        
+                        <div id="game-score" class="text-center text-lg font-medium text-secondary mb-6">
+                            得分: 0
+                        </div>
+                        
+                        <div id="game-container" class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
+                            <!-- 游戏卡片将在这里生成 -->
+                        </div>
+                        
+                        <div class="flex justify-center gap-4">
+                            <button id="start-game" class="px-6 py-2 bg-primary text-white rounded-full hover:bg-red-700 transition-colors">
+                                <i class="fa fa-play mr-2"></i> 开始游戏
+                            </button>
+                            <button id="show-solution" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition-colors">
+                                <i class="fa fa-eye mr-2"></i> 查看答案
+                            </button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(gameModal);
+                
+                // 历史事件数据
+                const historyEvents = Array.from(timelineItems).map((item, index) => {
+                    const title = item.querySelector('h3').textContent;
+                    const year = item.querySelector('p.text-secondary').textContent.match(/\d{4}/)[0];
+                    return {
+                        id: index,
+                        title: title,
+                        year: parseInt(year),
+                        correctPosition: index
+                    };
+                });
+                
+                let gameStarted = false;
+                let startTime;
+                let timerInterval;
+                let score = 0;
+                let shuffledEvents;
+                
+                // 开始游戏
+                document.getElementById('start-game').addEventListener('click', () => {
+                    if (!gameStarted) {
+                        startNewGame();
+                    }
+                });
+                
+                // 查看答案
+                document.getElementById('show-solution').addEventListener('click', () => {
+                    if (gameStarted) {
+                        const sortedEvents = [...historyEvents].sort((a, b) => a.year - b.year);
+                        showSolution(sortedEvents);
+                    }
+                });
+                
+                // 关闭游戏
+                document.getElementById('close-memory-game').addEventListener('click', () => {
+                    clearInterval(timerInterval);
+                    document.body.removeChild(gameModal);
+                });
+                
+                function startNewGame() {
+                    gameStarted = true;
+                    score = 0;
+                    updateScore();
+                    
+                    // 随机打乱事件顺序
+                    shuffledEvents = [...historyEvents].sort(() => Math.random() - 0.5);
+                    
+                    // 创建游戏卡片
+                    const gameContainer = document.getElementById('game-container');
+                    gameContainer.innerHTML = '';
+                    
+                    shuffledEvents.forEach((event, index) => {
+                        const card = document.createElement('div');
+                        card.className = 'memory-card bg-white border-2 border-gray-200 rounded-lg p-3 cursor-move hover:border-primary transition-all shadow-sm hover:shadow-md';
+                        card.dataset.id = event.id;
+                        card.innerHTML = `
+                            <h4 class="font-medium text-darkRed mb-1">${event.title}</h4>
+                            <p class="text-sm text-gray-600">${event.year}年</p>
+                        `;
+                        gameContainer.appendChild(card);
+                        
+                        // 添加拖拽功能
+                        makeDraggable(card);
+                    });
+                    
+                    // 开始计时
+                    startTime = new Date();
+                    updateTimer();
+                    timerInterval = setInterval(updateTimer, 1000);
+                    
+                    // 更新按钮状态
+                    document.getElementById('start-game').innerHTML = '<i class="fa fa-refresh mr-2"></i> 重新开始';
+                }
+                
+                function makeDraggable(element) {
+                    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+                    element.onmousedown = dragMouseDown;
+                    
+                    function dragMouseDown(e) {
+                        e.preventDefault();
+                        // 获取鼠标位置
+                        pos3 = e.clientX;
+                        pos4 = e.clientY;
+                        document.onmouseup = closeDragElement;
+                        document.onmousemove = elementDrag;
+                        
+                        // 提升卡片层级
+                        element.style.zIndex = '10';
+                        element.style.transform = 'scale(1.05)';
+                    }
+                    
+                    function elementDrag(e) {
+                        e.preventDefault();
+                        // 计算新位置
+                        pos1 = pos3 - e.clientX;
+                        pos2 = pos4 - e.clientY;
+                        pos3 = e.clientX;
+                        pos4 = e.clientY;
+                        // 设置元素新位置
+                        element.style.top = (element.offsetTop - pos2) + "px";
+                        element.style.left = (element.offsetLeft - pos1) + "px";
+                        element.style.position = 'absolute';
+                    }
+                    
+                    function closeDragElement() {
+                        // 停止移动
+                        document.onmouseup = null;
+                        document.onmousemove = null;
+                        
+                        // 重置样式
+                        element.style.zIndex = '1';
+                        element.style.transform = 'scale(1)';
+                        
+                        // 检查是否完成游戏
+                        checkSolution();
+                    }
+                }
+                
+                function checkSolution() {
+                    const cards = document.querySelectorAll('.memory-card');
+                    const sortedCards = [...cards].sort((a, b) => {
+                        const rectA = a.getBoundingClientRect();
+                        const rectB = b.getBoundingClientRect();
+                        return rectA.left - rectB.left;
+                    });
+                    
+                    let correctCount = 0;
+                    sortedCards.forEach((card, index) => {
+                        const eventId = parseInt(card.dataset.id);
+                        const event = historyEvents.find(e => e.id === eventId);
+                        
+                        // 找出该年份在所有事件中的正确位置
+                        const yearSortedEvents = [...historyEvents].sort((a, b) => a.year - b.year);
+                        const correctIndex = yearSortedEvents.findIndex(e => e.id === eventId);
+                        
+                        if (index === correctIndex) {
+                            card.classList.add('border-green-500', 'bg-green-50');
+                            card.classList.remove('border-gray-200', 'border-red-500', 'bg-red-50');
+                            correctCount++;
+                        } else {
+                            card.classList.add('border-red-500', 'bg-red-50');
+                            card.classList.remove('border-gray-200', 'border-green-500', 'bg-green-50');
+                        }
+                    });
+                    
+                    // 更新得分
+                    score = Math.floor((correctCount / sortedCards.length) * 100);
+                    updateScore();
+                    
+                    // 检查是否完成
+                    if (correctCount === sortedCards.length) {
+                        clearInterval(timerInterval);
+                        showNotification('恭喜你完成了挑战！得分：' + score + '分');
+                    }
+                }
+                
+                function showSolution(sortedEvents) {
+                    const gameContainer = document.getElementById('game-container');
+                    gameContainer.innerHTML = '';
+                    
+                    sortedEvents.forEach(event => {
+                        const card = document.createElement('div');
+                        card.className = 'memory-card bg-green-50 border-2 border-green-500 rounded-lg p-3 shadow-sm';
+                        card.innerHTML = `
+                            <h4 class="font-medium text-darkRed mb-1">${event.title}</h4>
+                            <p class="text-sm text-gray-600">${event.year}年</p>
+                        `;
+                        gameContainer.appendChild(card);
+                    });
+                }
+                
+                function updateTimer() {
+                    const now = new Date();
+                    const elapsedSeconds = Math.floor((now - startTime) / 1000);
+                    const minutes = Math.floor(elapsedSeconds / 60).toString().padStart(2, '0');
+                    const seconds = (elapsedSeconds % 60).toString().padStart(2, '0');
+                    document.getElementById('game-timer').textContent = `时间: ${minutes}:${seconds}`;
+                }
+                
+                function updateScore() {
+                    document.getElementById('game-score').textContent = `得分: ${score}`;
+                }
+            }
+        }
+        
+        // 历史时间轴交互功能
+        function setupHistoryTimeline() {
+            const detailBtns = document.querySelectorAll('.history-detail-btn');
+            const closeBtns = document.querySelectorAll('.history-close-btn');
+            const details = document.querySelectorAll('.history-detail');
+            const images = document.querySelectorAll('.history-image-container img');
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            // 查看详情功能
+            detailBtns.forEach((btn, index) => {
+                btn.addEventListener('click', () => {
+                    details.forEach(detail => detail.classList.add('hidden'));
+                    details[index].classList.remove('hidden');
+                    
+                    // 添加淡入动画
+                    details[index].style.opacity = '0';
+                    setTimeout(() => {
+                        details[index].style.transition = 'opacity 0.3s ease-in-out';
+                        details[index].style.opacity = '1';
+                    }, 10);
+                });
+            });
+            
+            // 收起详情功能
+            closeBtns.forEach((btn, index) => {
+                btn.addEventListener('click', () => {
+                    details[index].style.opacity = '0';
+                    setTimeout(() => {
+                        details[index].classList.add('hidden');
+                    }, 300);
+                });
+            });
+            
+            // 图片点击放大效果
+            images.forEach(img => {
+                img.addEventListener('click', () => {
+                    const modal = document.createElement('div');
+                    modal.className = 'fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center cursor-pointer';
+                    modal.innerHTML = `
+                        <div class="max-w-4xl max-h-[90vh]">
+                            <img src="${img.src}" alt="${img.alt}" class="max-w-full max-h-[90vh] object-contain">
+                        </div>
+                    `;
+                    document.body.appendChild(modal);
+                    
+                    modal.addEventListener('click', () => {
+                        document.body.removeChild(modal);
+                    });
+                });
+            });
+            
+            // 添加"记住这个时刻"收藏功能
+            timelineItems.forEach((item, index) => {
+                // 检查是否已有收藏按钮
+                if (!item.querySelector('.remember-btn')) {
+                    // 获取时间点标题
+                    const titleElement = item.querySelector('h3');
+                    const titleText = titleElement.textContent;
+                    
+                    // 创建收藏按钮
+                    const rememberBtn = document.createElement('button');
+                    rememberBtn.className = 'remember-btn mt-2 ml-2 text-xs bg-secondary/20 hover:bg-secondary/40 text-darkRed py-1 px-3 rounded-full transition-colors';
+                    rememberBtn.innerHTML = '<i class="fa fa-star-o mr-1"></i> 记住这个时刻';
+                    
+                    // 将收藏按钮添加到时间点信息下方
+                    const infoContainer = titleElement.closest('div');
+                    const detailBtn = infoContainer.querySelector('.history-detail-btn');
+                    detailBtn.parentNode.insertBefore(rememberBtn, detailBtn.nextSibling);
+                    
+                    // 添加收藏事件
+                    rememberBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const icon = rememberBtn.querySelector('i');
+                        
+                        if (icon.classList.contains('fa-star-o')) {
+                            // 添加到收藏
+                            icon.classList.remove('fa-star-o');
+                            icon.classList.add('fa-star');
+                            rememberBtn.classList.add('bg-secondary');
+                            rememberBtn.classList.add('text-darkRed');
+                            rememberBtn.classList.remove('bg-secondary/20');
+                            
+                            // 保存到本地存储
+                            let savedMoments = JSON.parse(localStorage.getItem('savedMoments')) || [];
+                            savedMoments.push(index);
+                            localStorage.setItem('savedMoments', JSON.stringify(savedMoments));
+                            
+                            // 显示收藏成功提示
+                            showNotification('已添加到我的收藏');
+                        } else {
+                            // 取消收藏
+                            icon.classList.remove('fa-star');
+                            icon.classList.add('fa-star-o');
+                            rememberBtn.classList.remove('bg-secondary');
+                            rememberBtn.classList.remove('text-darkRed');
+                            rememberBtn.classList.add('bg-secondary/20');
+                            
+                            // 从本地存储移除
+                            let savedMoments = JSON.parse(localStorage.getItem('savedMoments')) || [];
+                            savedMoments = savedMoments.filter(moment => moment !== index);
+                            localStorage.setItem('savedMoments', JSON.stringify(savedMoments));
+                            
+                            // 显示取消收藏提示
+                            showNotification('已从收藏中移除');
+                        }
+                    });
+                }
+            });
+            
+            // 初始化已收藏的时刻
+            const savedMoments = JSON.parse(localStorage.getItem('savedMoments')) || [];
+            savedMoments.forEach(index => {
+                if (index < timelineItems.length) {
+                    const rememberBtn = timelineItems[index].querySelector('.remember-btn');
+                    if (rememberBtn) {
+                        const icon = rememberBtn.querySelector('i');
+                        icon.classList.remove('fa-star-o');
+                        icon.classList.add('fa-star');
+                        rememberBtn.classList.add('bg-secondary');
+                        rememberBtn.classList.add('text-darkRed');
+                        rememberBtn.classList.remove('bg-secondary/20');
+                    }
+                }
+            });
+        }
+        
+        // 创建心形粒子效果
+        function createHeartParticles(x, y) {
+            const particlesCount = 8;
+            
+            for (let i = 0; i < particlesCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'heart-particle';
+                particle.innerHTML = '<i class="fa fa-heart"></i>';
+                particle.style.position = 'fixed';
+                particle.style.left = `${x}px`;
+                particle.style.top = `${y}px`;
+                particle.style.color = '#DE1F26';
+                particle.style.fontSize = `${Math.random() * 10 + 12}px`;
+                particle.style.opacity = '0.8';
+                particle.style.zIndex = '1000';
+                particle.style.pointerEvents = 'none';
+                particle.style.transform = 'translate(-50%, -50%)';
+                // 添加过渡动画
+                particle.style.transition = 'all 0.2s ease';
+                
+                // 随机动画参数
+                const angle = Math.random() * Math.PI * 2;
+                const distance = Math.random() * 40 + 20;
+                const duration = Math.random() * 1000 + 1000;
+                const delay = Math.random() * 200;
+                
+                document.body.appendChild(particle);
+                
+                // 使用CSS动画
+                setTimeout(() => {
+                    particle.style.transition = `all ${duration}ms ease-out`;
+                    particle.style.left = `${x + Math.cos(angle) * distance}px`;
+                    particle.style.top = `${y + Math.sin(angle) * distance}px`;
+                    particle.style.opacity = '0';
+                    particle.style.transform = `translate(-50%, -50%) scale(0)`;
+                    
+                    // 动画完成后移除粒子
+                    setTimeout(() => {
+                        if (particle.parentNode) {
+                            particle.parentNode.removeChild(particle);
+                        }
+                    }, duration);
+                }, delay);
+            }
+        }
+        
+        // 显示通知提示
+        function showNotification(message) {
+            // 移除任何已存在的通知元素
+            const existingNotification = document.getElementById('notification');
+            if (existingNotification) {
+                document.body.removeChild(existingNotification);
+            }
+            
+            // 创建新的通知元素
+            const notification = document.createElement('div');
+            notification.id = 'notification';
+            notification.className = 'fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-darkRed text-white px-6 py-3 rounded-full shadow-lg z-50 opacity-0 transition-all duration-300';
+            notification.style.transform = 'translate(-50%, 20px)'; // 初始位置在下方
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // 触发重排以确保动画生效
+            void notification.offsetWidth;
+            
+            // 显示动画
+            notification.style.opacity = '1';
+            notification.style.transform = 'translate(-50%, 0)';
+            
+            // 显示一段时间后淡出并移除
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translate(-50%, 20px)';
+                
+                // 动画完成后移除元素
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        document.body.removeChild(notification);
+                    }
+                }, 300);
+            }, 2000);
+        }
+        
+        // 祝福墙互动功能
+        function setupGreetingInteractions() {
+            // 事件委托处理祝福卡片的点赞和分享
+            const greetingList = document.getElementById('greeting-list');
+            
+            // 从本地存储加载点赞状态
+            const loadLikedState = () => {
+                const likedItems = JSON.parse(localStorage.getItem('likedGreetings')) || {};
+                return likedItems;
+            };
+            
+            // 保存点赞状态到本地存储
+            const saveLikedState = (likedItems) => {
+                localStorage.setItem('likedGreetings', JSON.stringify(likedItems));
+            };
+            
+            // 初始化点赞状态
+            const initLikedStates = () => {
+                const likedItems = loadLikedState();
+                const greetingCards = greetingList.querySelectorAll('.bg-white');
+                
+                greetingCards.forEach((card, index) => {
+                    const likeBtn = card.querySelector('.greeting-like-btn');
+                    if (!likeBtn) return; // 防止没有点赞按钮的情况
+                    
+                    const icon = likeBtn.querySelector('i');
+                    const countEl = likeBtn.querySelector('.like-count');
+                    
+                    if (likedItems[index]) {
+                        likeBtn.classList.add('liked');
+                        likeBtn.classList.remove('text-gray-500');
+                        likeBtn.classList.add('text-primary');
+                        icon.classList.remove('fa-heart-o');
+                        icon.classList.add('fa-heart');
+                    }
+                });
+            };
+            
+            // 点赞时添加更多视觉反馈
+            const addLikeVisualEffects = (btn, x, y) => {
+                const icon = btn.querySelector('i');
+                
+                // 添加多种动画效果
+                icon.classList.add('animate-bounce', 'animate-heart-beat');
+                
+                // 添加按钮缩放效果
+                btn.classList.add('scale-110');
+                btn.style.transition = 'all 0.3s ease';
+                
+                // 1秒后移除动画
+                setTimeout(() => {
+                    icon.classList.remove('animate-bounce', 'animate-heart-beat');
+                    btn.classList.remove('scale-110');
+                }, 1000);
+                
+                // 创建心形粒子效果
+                createHeartParticles(x, y);
+                
+                // 显示点赞成功提示
+                showNotification('点赞成功！');
+            };
+            
+            // 初始化点赞状态
+            initLikedStates();
+            
+            greetingList.addEventListener('click', (e) => {
+                // 处理点赞功能
+                if (e.target.closest('.greeting-like-btn')) {
+                    const btn = e.target.closest('.greeting-like-btn');
+                    const countEl = btn.querySelector('.like-count');
+                    const icon = btn.querySelector('i');
+                    const greetingCards = Array.from(greetingList.querySelectorAll('.bg-white'));
+                    const cardIndex = greetingCards.indexOf(btn.closest('.bg-white'));
+                    
+                    // 获取当前点赞状态
+                    const likedItems = loadLikedState();
+                    
+                    // 检查是否已点赞
+                    if (btn.classList.contains('liked')) {
+                        // 取消点赞
+                        btn.classList.remove('liked');
+                        btn.classList.remove('text-primary');
+                        btn.classList.add('text-gray-500');
+                        icon.classList.remove('fa-heart');
+                        icon.classList.add('fa-heart-o');
+                        countEl.textContent = parseInt(countEl.textContent) - 1;
+                        
+                        // 添加取消点赞的动画
+                        icon.classList.add('animate-bounce');
+                        setTimeout(() => {
+                            icon.classList.remove('animate-bounce');
+                        }, 500);
+                        
+                        // 从本地存储移除点赞状态
+                        delete likedItems[cardIndex];
+                        saveLikedState(likedItems);
+                    } else {
+                        // 点赞
+                        btn.classList.add('liked');
+                        btn.classList.remove('text-gray-500');
+                        btn.classList.add('text-primary');
+                        icon.classList.remove('fa-heart-o');
+                        icon.classList.add('fa-heart');
+                        countEl.textContent = parseInt(countEl.textContent) + 1;
+                        
+                        // 添加点赞视觉效果
+                        addLikeVisualEffects(btn, e.clientX, e.clientY);
+                        
+                        // 保存点赞状态到本地存储
+                        likedItems[cardIndex] = true;
+                        saveLikedState(likedItems);
+                    }
+                }
+                
+                // 处理分享功能
+                    if (e.target.closest('.greeting-share-btn')) {
+                        const btn = e.target.closest('.greeting-share-btn');
+                        const message = btn.closest('.bg-white').querySelector('p.text-gray-800').textContent;
+                        
+                        // 分享功能
+                        if (navigator.share) {
+                            navigator.share({
+                                title: '2025年国庆节祝福',
+                                text: message,
+                                url: window.location.href
+                            }).then(() => {
+                                console.log('分享成功');
+                            }).catch(err => {
+                                console.log('分享失败', err);
+                                // 降级方案
+                                prompt('复制以下内容分享给朋友：', message + '\n\n来自：2025年国庆节特别策划');
+                            });
+                        } else {
+                            prompt('复制以下内容分享给朋友：', message + '\n\n来自：2025年国庆节特别策划');
+                        }
+                    }
+                });
+            }
+            
+            // 国旗拼图游戏功能
+            function setupPuzzleGame() {
+                const puzzleBtn = document.getElementById('puzzle-btn');
+                let puzzleModal;
+                
+                puzzleBtn.addEventListener('click', () => {
+                    // 创建拼图游戏模态框
+                    puzzleModal = document.createElement('div');
+                    puzzleModal.id = 'puzzle-modal';
+                    puzzleModal.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80';
+                    puzzleModal.innerHTML = `
+                        <div class="relative bg-white rounded-xl shadow-2xl max-w-3xl w-full mx-4 p-6">
+                            <button id="close-puzzle" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                                <i class="fa fa-times text-xl"></i>
+                            </button>
+                            
+                            <h3 class="text-xl font-semibold text-darkRed mb-6 text-center">
+                                国旗拼图游戏
+                            </h3>
+                            
+                            <div class="text-gray-600 text-center mb-4">
+                                <p>拖动拼图块完成国旗拼接</p>
+                                <p id="puzzle-timer" class="mt-2">时间: 00:00</p>
+                            </div>
+                            
+                            <div id="puzzle-container" class="w-full aspect-square max-w-md mx-auto bg-gray-100 rounded-lg overflow-hidden relative mb-6">
+                                <!-- 拼图将在这里生成 -->
+                            </div>
+                            
+                            <div class="flex justify-center gap-4">
+                                <button id="reset-puzzle" class="px-6 py-2 bg-secondary text-darkRed rounded-full hover:bg-lightGold transition-colors">
+                                    <i class="fa fa-refresh mr-2"></i> 重新开始
+                                </button>
+                                <button id="show-puzzle-solution" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition-colors">
+                                    <i class="fa fa-eye mr-2"></i> 查看答案
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    document.body.appendChild(puzzleModal);
+                    
+                    // 初始化拼图游戏
+                    initPuzzle();
+                    
+                    // 关闭按钮事件
+                    document.getElementById('close-puzzle').addEventListener('click', () => {
+                        document.body.removeChild(puzzleModal);
+                        clearInterval(window.puzzleTimer);
+                    });
+                    
+                    // 重新开始按钮事件
+                    document.getElementById('reset-puzzle').addEventListener('click', () => {
+                        clearInterval(window.puzzleTimer);
+                        initPuzzle();
+                    });
+                    
+                    // 查看答案按钮事件
+                    document.getElementById('show-puzzle-solution').addEventListener('click', showPuzzleSolution);
+                });
+                
+                // 初始化拼图
+                function initPuzzle() {
+                    const container = document.getElementById('puzzle-container');
+                    container.innerHTML = '';
+                    
+                    const pieces = 16; // 4x4拼图
+                    const pieceSize = container.clientWidth / 4;
+                    
+                    // 创建拼图块
+                    for (let i = 0; i < pieces; i++) {
+                        const piece = document.createElement('div');
+                        piece.className = 'puzzle-piece absolute cursor-move transition-all';
+                        piece.style.width = `${pieceSize}px`;
+                        piece.style.height = `${pieceSize}px`;
+                        
+                        // 设置背景图片和位置
+                        piece.style.backgroundImage = 'url(https://picsum.photos/seed/chinaflag/600/600)';
+                        piece.style.backgroundSize = '600px 600px';
+                        
+                        const row = Math.floor(i / 4);
+                        const col = i % 4;
+                        
+                        piece.style.backgroundPosition = `${-col * 150}px ${-row * 150}px`;
+                        
+                        // 设置拼图块的ID
+                        piece.dataset.index = i;
+                        
+                        container.appendChild(piece);
+                    }
+                    
+                    // 打乱拼图
+                    shufflePuzzle();
+                    
+                    // 添加拖拽功能
+                    addDragAndDrop();
+                    
+                    // 开始计时
+                    startPuzzleTimer();
+                }
+                
+                // 打乱拼图
+                function shufflePuzzle() {
+                    const container = document.getElementById('puzzle-container');
+                    const pieces = Array.from(container.querySelectorAll('.puzzle-piece'));
+                    const pieceSize = container.clientWidth / 4;
+                    
+                    // 随机位置数组
+                    const positions = [];
+                    for (let i = 0; i < 16; i++) {
+                        positions.push(i);
+                    }
+                    
+                    // 洗牌算法
+                    for (let i = positions.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [positions[i], positions[j]] = [positions[j], positions[i]];
+                    }
+                    
+                    // 设置随机位置
+                    pieces.forEach((piece, index) => {
+                        const pos = positions[index];
+                        const row = Math.floor(pos / 4);
+                        const col = pos % 4;
+                        
+                        piece.style.left = `${col * pieceSize}px`;
+                        piece.style.top = `${row * pieceSize}px`;
+                        piece.dataset.currentPos = pos;
+                        
+                        // 添加随机旋转增加难度
+                        const rotation = (Math.random() - 0.5) * 45; // -22.5° 到 22.5°
+                        piece.style.transform = `rotate(${rotation}deg)`;
+                    });
+                }
+                
+                // 添加拖拽功能
+                function addDragAndDrop() {
+                    const pieces = document.querySelectorAll('.puzzle-piece');
+                    let draggedPiece = null;
+                    
+                    // 为所有拼图块添加基础样式
+                    pieces.forEach(piece => {
+                        piece.style.transition = 'all 0.3s ease'; // 添加平滑过渡
+                        piece.style.zIndex = '10'; // 设置基础z-index
+                    });
+                    
+                    pieces.forEach(piece => {
+                        piece.addEventListener('dragstart', (e) => {
+                            draggedPiece = piece;
+                            setTimeout(() => {
+                                piece.classList.add('opacity-50');
+                                piece.style.zIndex = '100'; // 拖拽时提升层级
+                                piece.style.transform = 'scale(1.1) rotate(0deg)'; // 添加缩放和旋转效果
+                            }, 0);
+                        });
+                        
+                        piece.addEventListener('dragend', () => {
+                            draggedPiece = null;
+                            piece.classList.remove('opacity-50');
+                            piece.style.zIndex = '10'; // 结束拖拽后恢复层级
+                            piece.style.transform = 'scale(1)'; // 恢复缩放
+                            
+                            // 检查是否完成拼图
+                            checkPuzzleCompletion();
+                        });
+                        
+                        piece.addEventListener('dragover', (e) => {
+                            e.preventDefault();
+                        });
+                        
+                        piece.addEventListener('dragenter', (e) => {
+                            e.preventDefault();
+                            if (piece !== draggedPiece) {
+                                piece.classList.add('bg-primary/10');
+                                piece.style.transform = 'scale(1.05)'; // 添加轻微缩放作为反馈
+                            }
+                        });
+                        
+                        piece.addEventListener('dragleave', () => {
+                            piece.classList.remove('bg-primary/10');
+                            if (piece !== draggedPiece) {
+                                piece.style.transform = 'scale(1)'; // 恢复缩放
+                            }
+                        });
+                        
+                        piece.addEventListener('drop', (e) => {
+                            e.preventDefault();
+                            piece.classList.remove('bg-primary/10');
+                            piece.style.transform = 'scale(1)'; // 恢复缩放
+                            
+                            if (draggedPiece && piece !== draggedPiece) {
+                                // 交换位置
+                                const pieceSize = document.getElementById('puzzle-container').clientWidth / 4;
+                                const draggedPos = parseInt(draggedPiece.dataset.currentPos);
+                                const targetPos = parseInt(piece.dataset.currentPos);
+                                
+                                // 交换位置数据
+                                draggedPiece.dataset.currentPos = targetPos;
+                                piece.dataset.currentPos = draggedPos;
+                                
+                                // 计算并设置新位置，使用平滑过渡
+                                const draggedRow = Math.floor(targetPos / 4);
+                                const draggedCol = targetPos % 4;
+                                const targetRow = Math.floor(draggedPos / 4);
+                                const targetCol = draggedPos % 4;
+                                
+                                // 使用过渡动画交换位置
+                                draggedPiece.style.left = `${draggedCol * pieceSize}px`;
+                                draggedPiece.style.top = `${draggedRow * pieceSize}px`;
+                                piece.style.left = `${targetCol * pieceSize}px`;
+                                piece.style.top = `${targetRow * pieceSize}px`;
+                            }
+                        });
+                        
+                        // 启用拖拽
+                        piece.setAttribute('draggable', 'true');
+                    });
+                }
+                
+                // 开始拼图计时器
+                function startPuzzleTimer() {
+                    const timerEl = document.getElementById('puzzle-timer');
+                    let seconds = 0;
+                    
+                    window.puzzleTimer = setInterval(() => {
+                        seconds++;
+                        const minutes = Math.floor(seconds / 60);
+                        const remainingSeconds = seconds % 60;
+                        
+                        timerEl.textContent = `时间: ${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+                    }, 1000);
+                }
+                
+                // 检查拼图是否完成
+                function checkPuzzleCompletion() {
+                    const pieces = document.querySelectorAll('.puzzle-piece');
+                    let isComplete = true;
+                    
+                    pieces.forEach(piece => {
+                        if (parseInt(piece.dataset.index) !== parseInt(piece.dataset.currentPos)) {
+                            isComplete = false;
+                        }
+                    });
+                    
+                    if (isComplete) {
+                        clearInterval(window.puzzleTimer);
+                        
+                        // 显示完成提示
+                        setTimeout(() => {
+                            alert('恭喜你完成了国旗拼图！');
+                        }, 300);
+                    }
+                }
+                
+                // 显示拼图答案
+                function showPuzzleSolution() {
+                    const pieces = document.querySelectorAll('.puzzle-piece');
+                    const pieceSize = document.getElementById('puzzle-container').clientWidth / 4;
+                    
+                    pieces.forEach(piece => {
+                        const correctPos = parseInt(piece.dataset.index);
+                        const row = Math.floor(correctPos / 4);
+                        const col = correctPos % 4;
+                        
+                        piece.style.left = `${col * pieceSize}px`;
+                        piece.style.top = `${row * pieceSize}px`;
+                        piece.dataset.currentPos = correctPos;
+                        piece.style.transform = 'rotate(0deg)';
+                    });
+                }
+            }
+            
+
+            
+            // 页面加载完成后初始化
+            document.addEventListener('DOMContentLoaded', () => {
+                createStars();
+                createGdpChart();
+                setupQuiz();
+                setupGreetings();
+                setupHistoryTimeline();
+                setupHistoryMemoryGame();
+                setupGreetingInteractions();
+                setupPuzzleGame();
+                setupBackgroundMusic(); // 添加背景音乐功能
+                
+                // 添加页面滚动动画
+            const sections = document.querySelectorAll('section');
+            
+            function checkScroll() {
+                const triggerBottom = window.innerHeight * 0.8;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    if (sectionTop < triggerBottom) {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // 初始设置
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            });
+            
+            // 检查初始位置
+            checkScroll();
+            
+            // 监听滚动事件
+            window.addEventListener('scroll', checkScroll);
+        });
+    </script>
+
+    <!-- 背景音乐 -->
+    <audio id="backgroundMusic" loop>
+            <source src="https://music.163.com/song/media/outer/url?id=1434658431.mp3" type="audio/mpeg">
+            您的浏览器不支持音频播放
+        </audio>
+        
+        <!-- 音乐控制按钮 -->
+        <div id="musicControl" class="fixed top-16 right-4 z-50 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110">
+            <button id="toggleMusic" class="text-primary">
+                <i class="fa fa-volume-up text-2xl"></i>
+            </button>
+        </div>
+        
+        <script>
+            // 音乐控制功能
+            function setupBackgroundMusic() {
+                const audio = document.getElementById('backgroundMusic');
+                const toggleBtn = document.getElementById('toggleMusic');
+                const musicControl = document.getElementById('musicControl');
+                let isPlaying = false;
+                
+                // 尝试自动播放音乐（受浏览器策略限制）
+                function tryAutoPlay() {
+                    audio.play().then(() => {
+                        isPlaying = true;
+                        updateMusicIcon();
+                        console.log('音乐自动播放成功');
+                    }).catch(err => {
+                        console.log('自动播放被阻止，需要用户交互：', err);
+                    });
+                }
+                
+                // 更新音乐图标
+                function updateMusicIcon() {
+                    const icon = toggleBtn.querySelector('i');
+                    if (isPlaying) {
+                        icon.className = 'fa fa-volume-up text-2xl';
+                        musicControl.classList.add('animate-pulse');
+                    } else {
+                        icon.className = 'fa fa-volume-off text-2xl';
+                        musicControl.classList.remove('animate-pulse');
+                    }
+                }
+                
+                // 切换音乐播放状态
+                toggleBtn.addEventListener('click', () => {
+                    if (isPlaying) {
+                        audio.pause();
+                    } else {
+                        audio.play();
+                    }
+                    isPlaying = !isPlaying;
+                    updateMusicIcon();
+                });
+                
+                // 监听页面交互，在用户第一次交互后尝试播放音乐
+                document.addEventListener('click', function handleFirstInteraction() {
+                    if (!isPlaying) {
+                        tryAutoPlay();
+                    }
+                    // 只监听第一次交互
+                    document.removeEventListener('click', handleFirstInteraction);
+                }, { once: true });
+                
+                // 在页面滚动时添加淡入效果
+                musicControl.style.opacity = '0';
+                setTimeout(() => {
+                    musicControl.style.transition = 'opacity 0.5s ease';
+                    musicControl.style.opacity = '1';
+                }, 1000);
+                
+                // 尝试自动播放
+                tryAutoPlay();
+            }
+            
+            // 添加音频动画样式
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes pulse {
+                    0%, 100% { transform: scale(1); }
+                    50% { transform: scale(1.05); }
+                }
+                
+                .animate-pulse {
+                    animation: pulse 2s ease-in-out infinite;
+                }
+            `;
+            document.head.appendChild(style);
+        </script>
+        
+
+    </body>
+</html>
